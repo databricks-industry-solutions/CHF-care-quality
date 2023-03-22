@@ -11,8 +11,14 @@
 
 -- COMMAND ----------
 
+CREATE WIDGET TEXT SOURCE_DB  DEFAULT "hls_cms_synpuf";
+CREATE WIDGET TEXT TARGET_DB  DEFAULT "ahrq_pqi";
 
-USE hls_healthcare.hls_cms_synpuf;
+-- COMMAND ----------
+
+CREATE DATABASE IF NOT EXISTS ${TARGET_DB};
+use ${SOURCE_DB};
+show tables
 
 -- COMMAND ----------
 
@@ -20,7 +26,15 @@ CREATE WIDGET TEXT denominator_icd_dx_inclusions DEFAULT ("'39891', '4280', '428
 
 -- COMMAND ----------
 
-CREATE OR REPLACE TABLE omop_patient_risk.COHORT_GROUP AS (select inp.*, case when arrays_overlap(array(${icd9_cols}),array(${cohort_numerator_exclusion})) is true then 0 else 1 end as numerator
+--Morgan, create this table as just denominator only members. Include year so if a member has 3 years of claims they may show up in this table 3x
+--DROP TABLE IF EXISTS ...;
+--TODO_MORGAN, Include in the claims both out_claims and car_claims as well (outpatient and pcp )
+--TODO_MORGAN, output table of the member id and year (these metrics are YoY)
+--TODO_MORGAN, exclude members (member/year) who have end stage renal disease ICD-9 code 585.6 
+--TODO_???, not eligible for both A & B (check ben_sum file data dictionary)
+CREATE TABLE omop_patient_risk.COHORT_GROUP AS 
+(select inp.*, 
+ case when arrays_overlap(array(${icd9_cols}),array(${cohort_numerator_exclusion})) is true then 0 else 1 end as numerator
 from hls_healthcare.hls_cms_synpuf.inp_claims inp
 where arrays_overlap(array(${icd9_cols}),array(${cohort_denominator})))
 
