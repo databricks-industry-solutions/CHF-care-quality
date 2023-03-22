@@ -3,7 +3,7 @@
 [![CLOUD](https://img.shields.io/badge/CLOUD-ALL-blue?logo=googlecloud&style=for-the-badge)](https://cloud.google.com/databricks)
 [![POC](https://img.shields.io/badge/POC-10_days-green?style=for-the-badge)](https://databricks.com/try-databricks)
 
-## Congestive Heart Failure Quality Metrics w/ DRG UDF 
+## Congestive Heart Failure Quality Metrics & MS-DRG as a SQL UDF 
 
 Patient Risk and Quality are closely intertwined and as a follow up to [predicting patient risk](https://github.com/databricks-industry-solutions/hls-patient-risk)we determine which organizations are best suited to treat at risk patients for Congestive Heart Failure. 
 
