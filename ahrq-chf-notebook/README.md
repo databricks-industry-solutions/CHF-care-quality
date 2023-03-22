@@ -10,9 +10,14 @@ CMS SynPuf is used because it will mimic EDI claim transactions in a healthcare 
 
 #### Input Data
 
-Datbase: 
+Database: 
 
 Tables: 
+  - 
+  -
+  -
+  -
+  - 
 
 ### Running the notebook
 
