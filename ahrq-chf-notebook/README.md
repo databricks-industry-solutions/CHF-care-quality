@@ -23,7 +23,7 @@ Calc Denominator inclusion/exclusion
 Calc Numerator (subset of denom) inclusion/exclusion
 Aggregate within provider group (ACO, Hospital, etc)
 
-### For claims pre 10-01-2015 service or CMS SynPuf
+### For claims prior to 10-01-2015 or CMS SynPuf
 
 
 ### For claims post 10-01-2015
