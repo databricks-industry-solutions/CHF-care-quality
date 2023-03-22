@@ -10,14 +10,14 @@ CMS SynPuf is used because it will mimic EDI claim transactions in a healthcare 
 
 #### Input Data
 
-Database: 
+Database: **hls_cms_synpuf**
 
-Tables: 
-  - 
-  -
-  -
-  -
-  - 
+TableNames: 
+  - BEN_SUM
+  - CAR_CLAIMS
+  - INP_CLAIMS
+  - OUT_CLAIMS
+  - RX_CLAIMS
 
 ### Running the notebook
 
