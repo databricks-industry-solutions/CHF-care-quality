@@ -12,8 +12,10 @@ Attach the repo jar package to your Spark 3.3.0, scala 2.12 Databricks cluster r
 ### Input
 
 8 fields are accepted as ordered paramters to the drg grouper. A none existant value should be passed as a blank string e.g. "". 
-  1. age
-  2. sex
+
+|Field #|Name| Description
+|1|age| age of the patient at time of entry
+|2|sex|
   3. lengthOfStay 
   4. admit diagnosis code
   5. principal diagnosis code
