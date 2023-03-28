@@ -15,7 +15,9 @@ Attach the repo jar package to your Spark 3.3.0, scala 2.12 Databricks cluster r
 
 |Field #|Name| Description
 |1|age| age of the patient at time of entry
-|2|sex|
+|2|sex| sex of the patient
+
+
   3. lengthOfStay 
   4. admit diagnosis code
   5. principal diagnosis code
