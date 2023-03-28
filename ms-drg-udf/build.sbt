@@ -3,7 +3,7 @@ lazy val scala211 = "2.11.12"
 lazy val sparkVersion = sys.env.getOrElse("SPARK_VERSION", "3.3.0")
 name := "ms-drg-udf"
 version := "0.1.0"
-lazy val drgversion = "3.9" //version of the DRG Grouper
+lazy val drgversion = "39" //version of the DRG Grouper
 
 ThisBuild / scalaVersion := sys.env.getOrElse("SCALA_VERSION", scala212)
 ThisBuild / organization := "com.databricks.labs"
