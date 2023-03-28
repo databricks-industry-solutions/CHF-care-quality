@@ -21,17 +21,39 @@ Attach the repo jar package to your Spark 3.3.0, scala 2.12 Databricks cluster r
   7. other diagnosis codes (a list comma sepearted)
   8. other procedure codes (a list comma seperated)
 
+### Execution on a dataset 
+
 ```scala
 %scala 
 
 //Register as a UDF
 spark.sqlContext.udf.register("drgUDF", new com.databricks.labs.msdrg.DrgUDF().call _)
 
+//1 record sample
 val df = spark.sql(""" select drgUDF('0', 'M', '0', 'I120', 'I120', '1', 'E0800', '0TY00Z0,0FYG0Z0,5A1D70Z') as drg """)
 
-```
+df.show() 
+/*Show DRG Output
+  drg.drgCode -> 19 
+  drg.drgDescription -> "Simultaneous pancreas and kidney transplant with hemodialysis"
+  drg.mdcCode -> 11
+  drg.mdcDescription -> "Diseases and disorders of the kidney and urinary tract"
+  drg.medSurgType -> "SURGICAL"
+  drg.grouperRC -> "OK"
+*/
 
-### Output 
+//Example of grouping inpatient claims together from a table
+val df = spark.sql("""
+ select inpatient_stay_id, 
+  drgUDF(age, sex, length_of_stay, admit_dx_cd, principal_dx_cd, 
+    hcfa_discharge_status_cd, 
+    concat(collect_list(dx_cd), ','),
+    concat(collect_list(proc_cd), ',')
+   ) as drg_cd
+ from <sample_table> 
+ group by inpatient_stay_id, age, sex, length_of_stay, admit_dx_cd, principal_dx_cd, hcfa_discharge_status_cd
+""")
+```
 
 ### Sample DRG, MDC, and Medical/Surgical indicators
 
