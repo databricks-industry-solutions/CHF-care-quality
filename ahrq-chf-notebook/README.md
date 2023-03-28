@@ -12,7 +12,7 @@ Database: **hls_cms_synpuf**
 
 | Tablenames | Description | 
 | -- | -- | 
-| **BEN_SUM** | A table containing member benefit information | 
+| **BEN_SUM** | Member benefits information | 
 | **CAR_CLAIMS** | Carrier claims, aka mostly PCP & outpatient related claim data |
 | **INP_CLAIMS** | Inpatient claims data |
 | **OUT_CLAIMS** | Outpatient claims data |
