@@ -60,6 +60,6 @@ val df = spark.sql("""
 
 ### Sample DRG, MDC, and Medical/Surgical indicators
 
-[Index by MDC](https://www.cms.gov/icd10m/version39-fullcode-cms/fullcode_cms/P0001.html) 
+[Index by MDC](https://www.cms.gov/icd10m/version39-fullcode-cms/fullcode_cms/P0001.html)   
 [Index by DRG](https://www.cms.gov/icd10m/version39-fullcode-cms/fullcode_cms/P0002.html)
 
