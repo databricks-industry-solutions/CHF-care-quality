@@ -10,7 +10,7 @@ Patient Risk and Quality are closely intertwined and as a follow up to [predicti
 The measure developed is a value between 0 (good) and 1 (bad) for providers who treat patients with CHF. This measure is part of the Preventative Quality Indicators (PQIs) developed by the Agency for Healthcare Research and Quality (AHRQ).
 ___
 
-
+test edit
 TODO IMAGE TO REFERENCE ARCHITECTURE for Patient Risk
 
 ___
