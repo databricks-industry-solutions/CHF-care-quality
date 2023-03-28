@@ -17,14 +17,12 @@ Attach the repo jar package to your Spark 3.3.0, scala 2.12 Databricks cluster r
 | -- | -- | -- |
 | 1 | age | age of the patient at time of entry |
 | 2 | sex | sex of the patient |
-
-
-  3. lengthOfStay 
-  4. admit diagnosis code
-  5. principal diagnosis code
-  6. hcfa discharge status code
-  7. other diagnosis codes (a list comma sepearted)
-  8. other procedure codes (a list comma seperated)
+| 3 | length of stay | the number of days the patient stayed an in the inpatient setting |
+| 4 | admit diagnosis code | The ICD10 diagnosis code of the admission |
+| 5 | principal diagnosis code | The ICD10 diagnosis code primary for the stay | 
+| 6 | hcfa discharge status code | The discharge status code of the patient | 
+| 7 | other diagnosis codes (a list comma sepearted) | A string value of other ICD10 diagnosis codes listed as comma separated | 
+| 8 | other procedure codes (a list comma seperated) | A string value of all procedure codes listed as comma separated |
 
 ### Execution on a dataset 
 
