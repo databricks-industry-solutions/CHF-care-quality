@@ -10,12 +10,13 @@
 
 Database: **hls_cms_synpuf**
 
-TableNames: 
-  - BEN_SUM
-  - CAR_CLAIMS
-  - INP_CLAIMS
-  - OUT_CLAIMS
-  - RX_CLAIMS
+| Tables | Description | 
+| -- | -- | 
+| BEN_SUM | A table containing member benefit information | 
+| CAR_CLAIMS | Carrier claims, aka mostly PCP & outpatient related claim data |
+| INP_CLAIMS | Inpatient claims data |
+| OUT_CLAIMS | Outpatient claims data |
+| RX_CLAIMS | Pharmacy claims (non-medical services) |
 
 ## Running the notebook
 
