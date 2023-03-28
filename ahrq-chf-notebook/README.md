@@ -2,7 +2,7 @@
 
 ## Assumptions
 
-1. Input Data: We are assuming the 5 datasets from [CMS Synthetic Public Use Files](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/SynPUFs/DE_Syn_PUF) are available in a database. 
+1. Input Data: We are assuming the 5 datasets from [CMS Synthetic Public Use Files](https://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/SynPUFs/DE_Syn_PUF) are available. Data dictionaries are available publicly with [Resdac ffs](https://resdac.org/cms-data?tid_1%5B1%5D=1&tid%5B4931%5D=4931)
 
 2. CMS SynPuf is mimics EDI claim transactions in a healthcare setting. The datatypes and meaning of fields used should be very similar to existing claims datasets. 
 
