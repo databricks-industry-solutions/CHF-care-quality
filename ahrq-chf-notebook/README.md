@@ -22,10 +22,11 @@ Database: **hls_cms_synpuf**
 
 ```
 "Run All" inside the databricks notebook will
-#Calculating denominator values
-#Calculate numerator values
-#Aggregate scores for provider quality (by ACO by Year, etc)
 ```
+1. Calculating denominator values
+2. Calculate numerator values
+3. Aggregate scores for provider quality (by ACO by Year, etc)
+
 
 ### For claims prior to 10-01-2015 or CMS SynPuf
 
@@ -39,6 +40,6 @@ We follow closely to this [document](https://www.cms.gov/files/document/aco-10-p
 
 Taking a look at the worst performing ACOs for preventative care around Congestive Heart Failure 
 
-[!image](../img/aco_results.jpg)
+[!image](../img/aco_results.png)
 
 
