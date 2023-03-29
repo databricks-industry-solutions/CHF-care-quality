@@ -2,7 +2,7 @@
 
 ## Congestive Heart Failure Quality Metrics & MS-DRG as a SQL UDF 
 
-Patient Risk and Quality are closely intertwined and as a follow up to [predicting patient risk](https://github.com/databricks-industry-solutions/hls-patient-risk), we then determine which organizations are best suited to treat at risk patients for Congestive Heart Failure. 
+Patient Risk and Quality are closely intertwined and as a follow up to [predicting patient risk](https://github.com/databricks-industry-solutions/hls-patient-risk), we then determine which organizations are best suited to treat at risk patients for Congestive Heart Failure (CHF). 
 
 The measure developed is a value between 0 (good) and 1 (bad) for providers who treat patients with CHF. This measure is part of the Preventative Quality Indicators (PQIs) developed by the Agency for Healthcare Research and Quality (AHRQ).
 ___
