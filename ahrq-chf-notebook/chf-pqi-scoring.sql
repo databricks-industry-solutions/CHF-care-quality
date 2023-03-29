@@ -1,6 +1,6 @@
 -- Databricks notebook source
 -- MAGIC %md
--- MAGIC #CHF Preventative Quality Indicator
+-- MAGIC #Congestive Heart Failure Preventative Quality Indicator
 -- MAGIC ICD9 code version https://www.cms.gov/files/document/aco-10-prevention-quality-indicator-pqi-ambulatory-sensitive-conditions-admissions-heart-failure-hf.pdf  
 -- MAGIC ICD10 code (latest) version https://qualityindicators.ahrq.gov/Downloads/Modules/PQI/V2022/TechSpecs/PQI_08_Heart_Failure_Admission_Rate.pdf
 
@@ -202,4 +202,5 @@ left outer join numerator o
 inner join (select desynpuf_id, max(tax_num_1) as attributed_aco from ${SOURCE_DB}.car_claims group by desynpuf_id) attribution
   on attribution.desynpuf_id = d.desynpuf_id
 group by attributed_aco, left(d.CLM_ADMSN_DT,4)
+having count(1) > 50
 ;
