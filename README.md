@@ -16,9 +16,13 @@ ___
 
 PQI indicators are typically assigned to an Affordable Care Organization (ACO) and show an organiation's effectiveness at preventative treatments. For this measure we are determining which organizations have the best score (closest to 0) to treat Congestive Heart Failure. 
 
+In the [notebook](./ahrq-chf-notebook) we show an example of calculating quality scores for ACOs using CMS claims data. 
+
 ### Calculating MS-DRGs from a UDF for measurement inputs
 
-MS-DRGs are a representation of inpatient claims for payment adjustments. 
+MS-DRGs are primarily used to represent inpatient claim payments. The ability to transform many inpatient records into a simple representation has its uses in [assessing quality metrics](https://github.com/databricks-industry-solutions/CHF-care-quality/blob/main/ahrq-chf-notebook/chf-pqi-scoring.sql#L148) as well as for predictive modeling on complex events. 
+
+We provide a [spark-udf](./ms-drg-udf) that allows you to run this calculation on Databricks.
 
 ### Project support for CHF Quality Metric & MS-DRGs 
 
