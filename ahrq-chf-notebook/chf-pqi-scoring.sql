@@ -147,7 +147,7 @@ on denom.clm_id = claims.clm_id
   and denom.segment = claims.segment
 where claims.clm_drg_cd != 999 --(1) ungroupable DRG
   and ICD9_DGNS_CD_1 in (${denominator_icd_dx_inclusions}) -- (2) Principal dx of hf
-  and not arrays_overlap(ARRAY(NVL(ICD9_PRCDR_CD_1, ''), NVL(ICD9_PRCDR_CD_2, ''), NVL(ICD9_PRCDR_CD_3, ''), NVL(ICD9_PRCDR_CD_4, ''), NVL(ICD9_PRCDR_CD_5, ''), NVL(ICD9_PRCDR_CD_6, '')), array(${numerator_icd_px_exclusions}))
+  and not arrays_overlap(ARRAY(NVL(ICD9_PRCDR_CD_1, ''), NVL(ICD9_PRCDR_CD_2, ''), NVL(ICD9_PRCDR_CD_3, ''), NVL(ICD9_PRCDR_CD_4, ''), NVL(ICD9_PRCDR_CD_5, ''), NVL(ICD9_PRCDR_CD_6, '')), array(${numerator_icd_px_exclusions})) -- (3) removed all major heart procedures from list
 ;
 select count(1) from numerator
 
@@ -158,16 +158,46 @@ select count(1) from numerator
 
 -- COMMAND ----------
 
--- DBTITLE 1,Summary score of our entire dataset
-select *
-from 
+-- DBTITLE 1,National score of our entire dataset
+select sum(case when o.clm_id is not null then 1 else 0 end) as numerator,
+  count(1) as denominator,
+  sum(case when o.clm_id is not null then 1 else 0 end)  / count(1)  as score
+from denominator d
+left outer join numerator o
+  on d.clm_id = o.clm_id and d.segment=o.segment
 
 -- COMMAND ----------
 
 -- DBTITLE 1,Scores by years
+select left(d.CLM_ADMSN_DT,4) as year, 
+  sum(case when o.clm_id is not null then 1 else 0 end) as numerator,
+  count(1) as denominator,
+  sum(case when o.clm_id is not null then 1 else 0 end)  / count(1)  as score
+from denominator d
+left outer join numerator o
+  on d.clm_id = o.clm_id and d.segment=o.segment
+group by left(d.CLM_ADMSN_DT,4)
+;
 
+-- COMMAND ----------
+
+-- MAGIC %md
+-- MAGIC Note: Determining the proper ACO typically requires attributing membership to PCPs. For CHF PQI, this is not indictive of hospital ineffeciency but rather other outpatient care settings leading to an inpatient event.
+-- MAGIC 
+-- MAGIC For this, we simply attribute a member to their latest PCP visit in the carrier claims file
 
 -- COMMAND ----------
 
 -- DBTITLE 1,Scores by ACO by Year
-
+select attributed_aco, 
+  left(d.CLM_ADMSN_DT,4) as year, 
+  sum(case when o.clm_id is not null then 1 else 0 end) as numerator,
+  count(1) as denominator,
+  sum(case when o.clm_id is not null then 1 else 0 end)  / count(1)  as score
+from denominator d
+left outer join numerator o
+  on d.clm_id = o.clm_id and d.segment=o.segment
+inner join (select desynpuf_id, max(tax_num_1) as attributed_aco from ${SOURCE_DB}.car_claims group by desynpuf_id) attribution
+  on attribution.desynpuf_id = d.desynpuf_id
+group by attributed_aco, left(d.CLM_ADMSN_DT,4)
+;
