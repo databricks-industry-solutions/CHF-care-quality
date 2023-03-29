@@ -155,6 +155,8 @@ select count(1) from numerator
 
 -- MAGIC %md
 -- MAGIC ## Calculating Quality Metric Scores for ACOs
+-- MAGIC 
+-- MAGIC lower score = better preventative care
 
 -- COMMAND ----------
 
@@ -184,7 +186,7 @@ group by left(d.CLM_ADMSN_DT,4)
 -- MAGIC %md
 -- MAGIC Note: Determining the proper ACO typically requires attributing membership to PCPs. For CHF PQI, this is not indictive of hospital ineffeciency but rather other outpatient care settings leading to an inpatient event.
 -- MAGIC 
--- MAGIC For this, we simply attribute a member to their latest PCP visit in the carrier claims file
+-- MAGIC For this, we naively attribute a member to a max value in the PCP visits from carrier claims. In practice this would not be the case
 
 -- COMMAND ----------
 
