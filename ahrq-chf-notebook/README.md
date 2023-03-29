@@ -20,18 +20,25 @@ Database: **hls_cms_synpuf**
 
 ## Running the notebook
 
-Calc Denominator inclusion/exclusion
-Calc Numerator (subset of denom) inclusion/exclusion
-Aggregate within provider group (ACO, Hospital, etc)
+```
+"Run All" inside the databricks notebook will
+#Calculating denominator values
+#Calculate numerator values
+#Aggregate scores for provider quality (by ACO by Year, etc)
+```
 
 ### For claims prior to 10-01-2015 or CMS SynPuf
 
+We follow closely to this [document](https://www.cms.gov/files/document/aco-10-prevention-quality-indicator-pqi-ambulatory-sensitive-conditions-admissions-heart-failure-hf.pdf). Note that our dataset is pre 2015 so our dataset has ICD9 codes and so we follow an ICD9 spec
 
 ### For claims post 10-01-2015
 
+[This](https://qualityindicators.ahrq.gov/Downloads/Modules/PQI/V2022/TechSpecs/PQI_08_Heart_Failure_Admission_Rate.pdf) is an updated version from AHRQ with the ICD10 codes listed 
 
 ## Working with Output 
 
-Sample records... prvdr + numerator + denominator + score
+Taking a look at the worst performing ACOs for preventative care around Congestive Heart Failure 
+
+[!image](../img/aco_results.jpg)
 
 
