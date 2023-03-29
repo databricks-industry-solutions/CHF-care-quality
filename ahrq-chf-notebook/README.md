@@ -40,6 +40,6 @@ We follow closely to this [document](https://www.cms.gov/files/document/aco-10-p
 
 Taking a look at the worst performing ACOs for preventative care around Congestive Heart Failure 
 
-[!image](../images/aco_results.png)
+[!image](../images/aco_results.png?raw=true)
 
 
