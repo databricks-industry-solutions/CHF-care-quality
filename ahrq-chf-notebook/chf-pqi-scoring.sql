@@ -140,7 +140,6 @@ drop table if exists numerator ;
 create table numerator
 as
 select denom.*
---NVL(ICD9_PRCDR_CD_1, ''), NVL(ICD9_PRCDR_CD_2, ''), NVL(ICD9_PRCDR_CD_3, ''), NVL(ICD9_PRCDR_CD_4, ''), NVL(ICD9_PRCDR_CD_5, ''), NVL(ICD9_PRCDR_CD_6, '')
 from denominator denom
   inner join ${SOURCE_DB}.inp_claims claims
 on denom.clm_id = claims.clm_id
