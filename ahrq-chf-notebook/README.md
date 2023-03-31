@@ -23,7 +23,7 @@ Database: **hls_cms_synpuf**
 ```
 "Run All" inside the databricks notebook will
 ```
-1. Calculating denominator values
+1. Calculate denominator values
 2. Calculate numerator values
 3. Aggregate scores for provider quality (by ACO by Year, etc)
 
