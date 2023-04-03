@@ -18,7 +18,7 @@ PQI indicators are typically assigned to an Affordable Care Organization (ACO) a
 
 In the [notebook](./ahrq-chf-notebook) we show an example of calculating quality scores for ACOs using CMS claims data. 
 
-### Calculating MS-DRGs from a UDF for measurement inputs
+### Calculating MS-DRGs from a UDF
 
 MS-DRGs are primarily used to represent inpatient claim payments. The ability to transform many inpatient records into a simple representation has its uses in [assessing quality metrics](https://github.com/databricks-industry-solutions/CHF-care-quality/blob/main/ahrq-chf-notebook/chf-pqi-scoring.sql#L148) as well as for predictive modeling on complex events. 
 
